@@ -29,6 +29,27 @@
     ports:
       - "80:80"
       - "21:21"
+      - "30000:30000"
+      - "30001:30001"
+      - "30002:30002"
+      - "30003:30003"
+      - "30004:30004"
+      - "30005:30005"
+      - "30006:30006"
+      - "30007:30007"
+      - "30008:30008"
+      - "30009:30009"
+    expose:
+      - "30000"
+      - "30001"
+      - "30002"
+      - "30003"
+      - "30004"
+      - "30005"
+      - "30006"
+      - "30007"
+      - "30008"
+      - "30009"
     detach: yes
     privileged: yes
     env_file: "/etc/galaxy/.mygalaxyenv"
@@ -36,4 +57,5 @@
       - "/etc/galaxy/delete_galaxy_user.py:/etc/galaxy/delete_galaxy_user.py/:rw"
       - "{{ export_dir }}/galaxy:{{ export_dir }}/:rw"
       - "/etc/galaxy/tool_data_tables:/etc/galaxy/tool_data_tables:rw"
+      - "/etc/proftpd/proftpd.conf:/etc/proftpd/proftpd.conf:rw"
   when: ansible_version.full < "2.4.0.0"
