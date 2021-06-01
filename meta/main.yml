@@ -11,4 +11,7 @@ galaxy_info:
     - galaxy docker
 
 dependencies:
-  - { role: laniakea.docker, docker_config:  { "data-root": "{{ export_dir }}/docker_image", }}
+  - role: laniakea.docker
+    version: master
+    vars:
+      docker_config:  { "data-root": "{{ export_dir }}/docker_image", }
