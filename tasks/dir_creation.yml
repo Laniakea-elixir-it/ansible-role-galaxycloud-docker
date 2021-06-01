@@ -37,7 +37,7 @@
     path: /etc/proftpd
     state: directory
   become_user: root
-  become_method: root
+  become_method: sudo
 
 - name: Copy proftpd configuration file
   template:
