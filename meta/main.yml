@@ -11,7 +11,17 @@ galaxy_info:
     - galaxy docker
 
 dependencies:
+
   - role: laniakea.docker
     version: master
     vars:
       docker_config:  { "data-root": "{{ export_dir }}/docker_image", }
+    tags: dep
+
+  - role: laniakea.cvmfs_client_config
+    version: master
+    vars: 
+      la_cvmfs_repository: data.elixir-italy-cvmfs #set elixir-it repository
+      elixir_it_repo: true #bool to configure elixir-it repo
+    tags: dep
+       

@@ -23,7 +23,7 @@ GALAXY_ADMIN_PASSWORD: "galaxy_admin_password"
 GALAXY_ADMIN_API_KEY: "GALAXY_ADMIN_API_KEY"
 
 # Galaxy administrator e-mail address
-GALAXY_ADMIN_EMAIL: "admin@server.com"
+GALAXY_ADMIN_EMAIL: "pietro.mandreoli@gmail.com"
 
 #______________________________________
 # Galaxy configuration
@@ -33,7 +33,8 @@ export_dir: "/export"
 
 #______________________________________
 # set galaxy docker flavor <owner>/<docker:<docker_flag>
-galaxy_flavor: 'bgruening/galaxy-stable:19.01'
+galaxy_flavor: 'laniakeacloud/galaxy_corgat:20.05'
+galaxy-central: /galaxy-central
 
 #______________________________________
 # Galaxy login
@@ -46,7 +47,7 @@ new_user_dataset_access_role_default_private: "true"
 # Galaxy cvmfs variable for j2 templates in order to mount the selected CVMFS repository
 # on docker
 
-refdata_cvmfs_repository_name: 'data.galaxyproject.org'
+refdata_cvmfs_repository_name: 'data.elixir-italy-cvmfs'
 cvmfs_server_url: 'http://{{ server_url }}/cvmfs/{{ refdata_cvmfs_repository_name }}'
 cvmfs_public_key_path: '/etc/cvmfs/keys'
 cvmfs_public_key: '{{ refdata_cvmfs_repository_name }}.pub'

@@ -3,9 +3,6 @@
 #_____________________________________
 # restart galaxy inside docker using supervisorctl
 
-- name: user creation 
-  become_user: root
-  command: docker exec galaxydocker /bin/bash -c ". $GALAXY_VIRTUAL_ENV/bin/activate && python /usr/local/bin/create_galaxy_user.py --user {{ GALAXY_ADMIN_EMAIL }} --password {{ GALAXY_ADMIN_PASSWORD }} -c $GALAXY_CONFIG_FILE  --key {{ GALAXY_ADMIN_API_KEY }} && deactivate "
 
 #_____________________________________
 #install pip module needed for delete_user python script
@@ -19,7 +16,23 @@
 
 - name: delete-user 
   become_user: root
-  command: docker exec galaxydocker /bin/bash -c ". $GALAXY_VIRTUAL_ENV/bin/activate && python /etc/galaxy/delete_galaxy_user.py -u admin@galaxy.org -c /etc/galaxy/galaxy.yml "
+  command: >
+   docker exec galaxydocker /bin/bash -c 
+   ". $GALAXY_VIRTUAL_ENV/bin/activate &&
+   python /opt/delete_galaxy_user.py
+   -u admin@galaxy.org -c /etc/galaxy/galaxy.yml "
+
+#- name: user creation 
+#  become_user: root
+#  command: docker exec galaxydocker /bin/bash -c ". $GALAXY_VIRTUAL_ENV/bin/activate && python /usr/local/bin/create_galaxy_user.py --user {{ GALAXY_ADMIN_EMAIL }} --password {{ GALAXY_ADMIN_PASSWORD }} -c $GALAXY_CONFIG_FILE  --key {{ GALAXY_ADMIN_API_KEY }} && deactivate "
+
+- name: user creation 
+  become_user: root
+  command: >
+   docker exec galaxydocker /bin/bash -c ". $GALAXY_VIRTUAL_ENV/bin/activate
+   && python /usr/local/bin/create_galaxy_user.py 
+   --user {{ GALAXY_ADMIN_EMAIL }} --password {{ GALAXY_ADMIN_PASSWORD }}
+   -c $GALAXY_CONFIG_FILE  --key {{ GALAXY_ADMIN_API_KEY }} && deactivate "
 
 #_____________________________________
 #test if there is the wf directory
@@ -36,5 +49,5 @@
 - name: share wf
   become_user: root
   command: docker exec galaxydocker /bin/bash -c ". $GALAXY_VIRTUAL_ENV/bin/activate && workflow-install --workflow_path $GALAXY_HOME/workflows/ -g http://localhost:80 -u {{ GALAXY_ADMIN_EMAIL }} -p {{ GALAXY_ADMIN_PASSWORD }} "
-  when: testdir|success
+  when: testdir is success
 
