@@ -23,5 +23,6 @@ dependencies:
     vars: 
       la_cvmfs_repository: data.elixir-italy-cvmfs #set elixir-it repository
       elixir_it_repo: true #bool to configure elixir-it repo
+    when: galaxy_flavor | regex_search("vinyl")
     tags: dep
        

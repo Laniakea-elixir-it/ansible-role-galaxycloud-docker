@@ -1,7 +1,13 @@
 ---
 
 #_____________________________________
-# restart galaxy inside docker using supervisorctl
+# stop autofos inside the container
+
+#- name: user creation 
+#  become_user: root
+#  command: >
+#   docker exec galaxydocker /bin/bash -c "supervisorctl stop autofs"
+
 
 
 #_____________________________________
@@ -48,6 +54,9 @@
 
 - name: share wf
   become_user: root
-  command: docker exec galaxydocker /bin/bash -c ". $GALAXY_VIRTUAL_ENV/bin/activate && workflow-install --workflow_path $GALAXY_HOME/workflows/ -g http://localhost:80 -u {{ GALAXY_ADMIN_EMAIL }} -p {{ GALAXY_ADMIN_PASSWORD }} "
+  command: >
+    docker exec galaxydocker /bin/bash -c ". $GALAXY_VIRTUAL_ENV/bin/activate 
+    && workflow-install --workflow_path $GALAXY_HOME/workflows/ 
+    -g http://localhost:80 -u {{ GALAXY_ADMIN_EMAIL }} -p {{ GALAXY_ADMIN_PASSWORD }} "
   when: testdir is success
 

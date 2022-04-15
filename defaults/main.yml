@@ -6,11 +6,6 @@ galaxy_instance_description: "ELIXIR-IT"
 galaxy_config_path: "/export/galaxy-central/config"
 galaxy_config_file: "{{galaxy_config_path}}/galaxy.yml"
 
-# Galaxy version to install
-#GALAXY_VERSION: "release_18.05"
-
-
-
 #______________________________________
 # Galaxy administrator
 

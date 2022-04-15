@@ -2,9 +2,8 @@
 
 #______________________________________
 # run galaxy docker mounting /export dir and cvmfs config files
-# both for ansible version >2.4 and <2.4
 
-- name: "[ansible >= 2.4] Galaxy Docker run."
+- name: "ANSIBLE 2.9 Galaxy Docker run:"
   docker_container:
     name: galaxydocker
     image: "{{ galaxy_flavor }}"
@@ -18,7 +17,6 @@
     volumes:
       - "/etc/galaxy/delete_galaxy_user.py:/opt/delete_galaxy_user.py:rw"
       - "{{ export_dir }}/galaxy:{{ export_dir }}:rw"
-    #      - "/etc/galaxy/tool_data_tables:/etc/galaxy/tool_data_tables:rw"
       - /cvmfs:/cvmfs:shared
-#sudo docker run -p 80:80 -p 21:21 --privileged -v /export/galaxy:/export -v /etc/galaxy/delete_galaxy_user.py:/opt/delete_galaxy_user:rw -e /etc/galaxy/.mygalaxyenv -v /cvmfs:/cvmfs:shared -it bgruening/galaxy-stable:19.01 bash
+      - /etc/cvmfs:/etc/cvmfs:rw
 
