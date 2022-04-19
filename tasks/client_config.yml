@@ -2,7 +2,6 @@
 ##_____________________________________
 #env file and script for user deletion that will be mounted in the docker
 
-
 - name: set env file and delete galaxy-user
   template:
     src: '{{ item.template }}'

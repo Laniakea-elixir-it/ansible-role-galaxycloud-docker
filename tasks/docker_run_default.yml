@@ -1,7 +1,6 @@
 ---
-
 #______________________________________
-# run galaxy docker mounting /export dir and cvmfs config files
+# run galaxy docker 
 
 - name: "ANSIBLE 2.9 Galaxy Docker run:"
   docker_container:

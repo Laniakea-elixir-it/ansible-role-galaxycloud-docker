@@ -51,4 +51,4 @@ proxy_port: 80
 cvmfs_http_proxy: 'http://{{ proxy_url }}:{{ proxy_port }}'
 cvmfs_mountpoint: '/cvmfs'
 #toool_data_table_conf
-tool_data_table_conf: '/etc/galaxy/tool_data_table_conf.xml'
+tool_data_table_conf: '/etc/galaxy/tool_da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t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a_table_conf.xml'

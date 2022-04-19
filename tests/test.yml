@@ -3,7 +3,7 @@
   remote_user: root
   become: true
   vars:
-  #   galaxy_flavor: 'bgruening/galaxy-stable:20.05'
+    galaxy_flavor: 'bgruening/galaxy-stable:20.05'
   roles:
     - ../../ansible-role-laniakea-galaxy-docker
   pre_tasks:

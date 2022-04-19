@@ -1,7 +1,6 @@
 ---
-
 #______________________________________
-#task files for ansible-role-galaxycloud-docker
+#task files for ansible-role-laniakea-docker
 
 - include: dir_creation.yml
 
@@ -10,7 +9,6 @@
 - include: client_config.yml 
 
 - include: prerequisites.yml
-
 
 - include: docker_run_default.yml
 
