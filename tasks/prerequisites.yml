@@ -64,6 +64,7 @@
     - build-essential
     - python-apt #needed by apt_repository ansible core module
     - lsof
+    - python3-docker
   become_user: root
   become_method: sudo
   when: ansible_os_family == "Debian"

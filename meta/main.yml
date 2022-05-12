@@ -12,11 +12,12 @@ galaxy_info:
 
 dependencies:
 
-  - role: laniakea.docker
-    version: master
+  - role: geerlingguy.docker
     vars:
-      docker_config:  { "data-root": "{{ export_dir }}/docker_image", }
-    tags: dep
+      docker_install_compose: false
+      docker_users: 
+        - "{{ laniakea_galaxy_user.name }}"
+      docker_daemon_options: { "data-root": "{{ export_dir }}/docker_image" }
 
   - role: laniakea.cvmfs_client_config
     version: master

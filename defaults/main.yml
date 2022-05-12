@@ -6,6 +6,8 @@ galaxy_instance_description: "ELIXIR-IT"
 galaxy_config_path: "/export/galaxy-central/config"
 galaxy_config_file: "{{galaxy_config_path}}/galaxy.yml"
 
+laniakea_galaxy_user: {name: galaxy, shell: /bin/bash, uid: 5001}
+laniakea_galaxy_group: {name: galaxy, gid: 5001}   
 #______________________________________
 # Galaxy administrator
 
