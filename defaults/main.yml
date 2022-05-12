@@ -30,7 +30,7 @@ export_dir: "/export"
 
 #______________________________________
 # set galaxy docker flavor <owner>/<docker:<docker_flag>
-galaxy_flavor: 'laniakeacloud/galaxy_corgat:20.05'
+galaxy_flavor: 'bgruening/galaxy-stable:20.05'
 galaxy-central: /galaxy-central
 
 #______________________________________

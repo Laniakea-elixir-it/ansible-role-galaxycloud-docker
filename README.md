@@ -29,7 +29,7 @@ Role Variables
 
 ``export_dir``: directory hosting Galaxy database files and docker images, **default** ="/export"
 
-``galaxy_flavor``: "\<owner>/\<docker\>:<docker_flag\>\", set the Galaxy Docker container, **default** = "bgruening/galaxy-stable:18.05"
+``galaxy_flavor``: "\<owner>/\<docker\>:<docker_flag\>\", set the Galaxy Docker container, **default** = "bgruening/galaxy-stable:20.05"
 
 
 ### Galaxy admin user creation ###
