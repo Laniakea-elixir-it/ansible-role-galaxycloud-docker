@@ -5,7 +5,7 @@ galaxy_info:
   role_name: galaxycloud_docker
   license: Apache
 
-  min_ansible_version: 2.2.1.0
+  min_ansible_version: 2.4
 
   galaxy_tags:
     - galaxy docker
@@ -13,6 +13,7 @@ galaxy_info:
 dependencies:
 
   - role: geerlingguy.docker
+    version: 4.2.2
     vars:
       docker_install_compose: false
       docker_users: 

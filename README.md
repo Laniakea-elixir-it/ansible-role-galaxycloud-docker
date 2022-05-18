@@ -48,7 +48,7 @@ Role Variables
 Dependencies
 ------------
 
-[indigo-dc.docker](https://github.com/indigo-dc/ansible-role-docker) : install Docker engine and store the docker images inside the external volume (/export).
+[geerlingguy.docker](https://galaxy.ansible.com/geerlingguy/docker) : install Docker engine and store the docker images inside the external volume (/export).
 
 Example Playbook
 ----------------
