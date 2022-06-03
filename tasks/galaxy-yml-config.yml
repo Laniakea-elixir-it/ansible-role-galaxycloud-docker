@@ -10,6 +10,27 @@
    -u admin@galaxy.org -c /etc/galaxy/galaxy.yml "
 
 #_____________________________________
+# Set password
+
+- name: Set Password from vault
+  set_fact:
+    GALAXY_ADMIN_PASSWORD: '{{ vault_secrets.data.admin_password }}'
+  no_log: True
+  when: retrieve_passphrase_from_vault
+
+- name: Create random admin user api key
+  set_fact:
+    GALAXY_ADMIN_API_KEY: "{{ lookup('password', '/dev/null length=50') }}"
+  no_log: True
+  when: galaxy_admin_api_key == "random"
+
+- name: Set custom admin user api key
+  set_fact:
+    GALAXY_ADMIN_API_KEY: "{{ galaxy_admin_api_key }}"
+  no_log: True
+  when: galaxy_admin_api_key != "random"
+
+#_____________________________________
 #run create user python script
 
 - name: user creation 

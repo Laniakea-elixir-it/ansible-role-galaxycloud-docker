@@ -12,6 +12,9 @@ galaxy_info:
 
 dependencies:
 
+  - role: mtangaro.vault_secrets
+    when: retrieve_passphrase_from_vault
+
   - role: geerlingguy.docker
     version: 4.2.2
     vars:
